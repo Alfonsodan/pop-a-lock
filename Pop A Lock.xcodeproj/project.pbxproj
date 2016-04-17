@@ -14,6 +14,7 @@
 		300706BD1CC36786007ABC18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 300706BC1CC36786007ABC18 /* Assets.xcassets */; };
 		300706C01CC36786007ABC18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300706BE1CC36786007ABC18 /* LaunchScreen.storyboard */; };
 		300706C81CC377AF007ABC18 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300706C71CC377AF007ABC18 /* Extensions.swift */; };
+		300706CA1CC391EC007ABC18 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300706C91CC391EC007ABC18 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		300706BF1CC36786007ABC18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		300706C11CC36786007ABC18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		300706C71CC377AF007ABC18 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		300706C91CC391EC007ABC18 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				300706BE1CC36786007ABC18 /* LaunchScreen.storyboard */,
 				300706C11CC36786007ABC18 /* Info.plist */,
 				300706C71CC377AF007ABC18 /* Extensions.swift */,
+				300706C91CC391EC007ABC18 /* MainViewController.swift */,
 			);
 			path = "Pop A Lock";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				300706B81CC36786007ABC18 /* GameViewController.swift in Sources */,
 				300706B21CC36786007ABC18 /* AppDelegate.swift in Sources */,
 				300706C81CC377AF007ABC18 /* Extensions.swift in Sources */,
+				300706CA1CC391EC007ABC18 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

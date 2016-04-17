@@ -10,6 +10,9 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    
+    var continueMode = Bool()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +28,14 @@ class GameViewController: UIViewController {
             
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
-            
+  /*
+         Where ive left off !!!
+         
+         
+        if continueIsTrue = continueMode {
+            scene.continueMode = continueIsTrue
+        }
+   */
             skView.presentScene(scene)
     }
 
