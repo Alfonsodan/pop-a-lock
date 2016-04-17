@@ -19,6 +19,7 @@ class GameScene: SKScene {
     let zeroAngle: CGFloat = 0.0
     
     var started = false
+    var touches = false
     
     override func didMoveToView(view: SKView) {
         layoutGame()
@@ -42,6 +43,8 @@ class GameScene: SKScene {
         needle.zRotation = 3.14 / 2
         needle.zPosition = 2.0
         self.addChild(needle)
+        
+        newDot()
     
     }
     
@@ -67,8 +70,50 @@ class GameScene: SKScene {
         needle.runAction(SKAction.repeatActionForever(run).reversedAction())
         
     }
+    
+    func newDot() {
+        dot = SKShapeNode(circleOfRadius: 15.0)
+        dot.fillColor = SKColor(red: 31.0/255.0, green: 150.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        dot.strokeColor = SKColor.clearColor()
+        
+        let dx = needle.position.x - self.frame.width/2
+        let dy = needle.position.y - self.frame.height/2
+        
+        let radian = atan2(dy, dx)
+        
+        let tempAngle = CGFloat.random(radian - 1.0, max: radian - 2.5)
+        let tempPath = UIBezierPath(arcCenter: CGPoint(x: self.frame.width / 2, y: self.frame.height / 2) , radius: 120, startAngle: tempAngle, endAngle: tempAngle + CGFloat(M_PI * 2), clockwise: true)
+        dot.position = tempPath.currentPoint
+        
+        self.addChild(dot)
+        
+    }
+    
+    func gameOver() {
+        needle.removeFromParent()
+        let actionRed = SKAction.colorizeWithColor(UIColor.redColor(), colorBlendFactor: 1.0, duration: 0.25)
+        let actionBack = SKAction.colorizeWithColor(UIColor.whiteColor(), colorBlendFactor: 1.0, duration: 0.25)
+        self.scene?.runAction(SKAction.sequence([actionRed, actionBack]), completion: { () -> Void in
+            self.removeAllChildren()
+            self.layoutGame()
+        })
+    
+    }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        if started {
+            if needle.intersectsNode(dot) {
+                touches = true
+            } else {
+                if touches == true {
+                    if !needle.intersectsNode(dot) {
+                        started = false
+                        touches = false
+                        gameOver()
+                    }
+                }
+            }
+        }
     }
 }
