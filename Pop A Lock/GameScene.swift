@@ -19,6 +19,8 @@ class GameScene: SKScene {
     let zeroAngle: CGFloat = 0.0
     
     var clockwise = Bool()
+    var continueMode = Bool()
+    var maxLevel = NSUserDefaults.standardUserDefaults().integerForKey("maxLevel")
     
     var started = false
     var touches = false
@@ -30,6 +32,9 @@ class GameScene: SKScene {
     var currentScoreLabel = SKLabelNode()
     
     override func didMoveToView(view: SKView) {
+        if continueMode {
+            level = maxLevel
+        }
         layoutGame()
      
     }
@@ -37,6 +42,10 @@ class GameScene: SKScene {
     func layoutGame() {
     
         backgroundColor = SKColor(red: 26.0/255.0, green: 180.0/255.0, blue: 156.0/255.0, alpha: 1.0)
+        
+        if level > maxLevel {
+            NSUserDefaults.standardUserDefaults().setInteger(level, forKey: "maxLevel")
+        }
         
         path = UIBezierPath(arcCenter: CGPoint(x: self.frame.width/2, y: self.frame.height/2), radius: 120, startAngle: zeroAngle, endAngle: zeroAngle + CGFloat(M_PI * 2), clockwise: true)
         

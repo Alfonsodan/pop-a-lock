@@ -11,8 +11,11 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
-    var continueMode = Bool()
+    var continueMode: Bool?
     
+    @IBAction func menuButtonHandler(sender: AnyObject) {
+        dismissViewControllerAnimated((true), completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,22 +23,20 @@ class GameViewController: UIViewController {
         let scene = GameScene(size: view.bounds.size)
             // Configure the view.
             let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+            //skView.showsFPS = true
+           // skView.showsNodeCount = true
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
-  /*
-         Where ive left off !!!
          
          
-        if continueIsTrue = continueMode {
+        if let continueIsTrue = continueMode {
             scene.continueMode = continueIsTrue
         }
-   */
+
             skView.presentScene(scene)
     }
 

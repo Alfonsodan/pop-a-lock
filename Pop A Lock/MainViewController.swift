@@ -11,8 +11,14 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBAction func playButtonHandler(sender: AnyObject) {
+        let gvc = storyboard?.instantiateViewControllerWithIdentifier("gameViewControler") as! GameViewController
+        gvc.continueMode = false
+        presentViewController(gvc, animated: true, completion: nil)
     }
     @IBAction func continueButtonHandler(sender: AnyObject) {
+        let gvc = storyboard?.instantiateViewControllerWithIdentifier("gameViewControler") as! GameViewController
+        gvc.continueMode = true
+        presentViewController(gvc, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
